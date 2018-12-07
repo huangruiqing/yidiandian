@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/user/1">getUser</a><br>
+getUser:userName:<span th:text="${getUser?.userName}">userName</span>--age:<span th:text="${getUser?.age}">age</span>
+<hr>
+<a href="/users">getUsers</a><br>
+getUsers:userName:
+<ul th:each="user : ${getUsers}">
+<li><span th:text="${user.userName}">userName</span>--age:<span th:text="${user.age}">age</span></li>
+</ul>>
+<hr>
+<a href="/user">postUser</a><br>
+postUser:userName:
+<ul th:each="user : ${getUsers}">
+    <li><span th:text="${user.userName}">userName</span>--age:<span th:text="${user.age}">age</span></li>
+</ul>>
+<hr>
+<a href="/user">putUser</a><br>
+putUser:userName:
+<ul th:each="user : ${updateUser}">
+    <li><span th:text="${user.userName}">userName</span>--age:<span th:text="${user.age}">age</span></li>
+</ul>>
+<hr>
+<hr>
+<a href="/user">deleteUser</a><br>
+deleteUser:userName:
+<ul th:each="user : ${deleteUser}">
+    <li><span th:text="${user.userName}">userName</span>--age:<span th:text="${user.age}">age</span></li>
+</ul>>
+<hr>
+</body>
+</html>
