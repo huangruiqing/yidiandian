@@ -20,7 +20,7 @@ public class FTLController {
     @RequestMapping("/ftl")
     public String welcome2(Map model) throws Exception {
         model.put("time", new Date());
-        model.put("message", "梁桂钊");
+        model.put("message", "freemaker_test");
 
         Template template = configuration.getTemplate("welcome.ftl");
         String content = FreeMarkerTemplateUtils.processTemplateIntoString(template, model);
@@ -29,4 +29,7 @@ public class FTLController {
 
         return content;
     }
+
+
+
 }
