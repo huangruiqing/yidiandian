@@ -7,4 +7,8 @@
 >  需要Bulid xxx.html    
 > 4、swagger  
 > 5、freemaker 作为模板
+> 6、 boot 测试 
+ @Before setUp() 新建MockMvc 通过 MockMvcBulifer.  
+ mvc.perfom(创建请求路径可以指定请求方式 get post...)
+ 
 ```
