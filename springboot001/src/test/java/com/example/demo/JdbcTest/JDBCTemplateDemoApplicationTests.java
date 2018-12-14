@@ -1,7 +1,8 @@
 package com.example.demo.JdbcTest;
 
+import com.example.demo.JdbcTemplate001.dao.IHrqBaseDictonaryDao;
 import com.example.demo.JdbcTemplate001.pojo.HrqBaseDictionary;
-import com.example.demo.JdbcTemplate001.service.HrqBaseDictionaryServiceImpl;
+import com.example.demo.JdbcTemplate001.dao.impl.HrqBaseDictionaryDaoImpl;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,22 +15,19 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class JDBCTemplateDemoApplicationTests {
 
     @Autowired
-    private HrqBaseDictionaryServiceImpl hrqBaseDictionaryService;
+    private IHrqBaseDictonaryDao hrqBaseDictionaryDao;
 
-    /*@Before
-    public void setUp() throws Exception {
-        hrqBaseDictionary.create();
-    }*/
 
     @Test
     public void test() throws Exception {
         // 插入5个用户
         HrqBaseDictionary hrqBaseDictionary = new HrqBaseDictionary();
-        hrqBaseDictionaryService.create(hrqBaseDictionary);
+        hrqBaseDictionary.setText("汉字测试");
+     //   hrqBaseDictionaryDao.create(hrqBaseDictionary);
 
-
+       // Assert.
         // 查数据库，应该有5个用户
-   //     Assert.assertEquals(5, hrqBaseDictionaryService.create(hrqBaseDictionary));
+       // Assert.assertEquals(5, hrqBaseDictionaryDao.create(hrqBaseDictionary));
 
 
         // 查数据库，应该有5个用户

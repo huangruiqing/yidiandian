@@ -1,6 +1,6 @@
-package com.example.demo.JdbcTemplate001.service;
+package com.example.demo.JdbcTemplate001.dao.impl;
 
-import com.example.demo.JdbcTemplate001.dao.IHrqBaseDictonary;
+import com.example.demo.JdbcTemplate001.dao.IHrqBaseDictonaryDao;
 import com.example.demo.JdbcTemplate001.pojo.HrqBaseDictionary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  * @Date 2018/12/13 20:23
  */
 @Service
-public class HrqBaseDictionaryServiceImpl implements IHrqBaseDictonary {
+public class HrqBaseDictionaryDaoImpl implements IHrqBaseDictonaryDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     @Override

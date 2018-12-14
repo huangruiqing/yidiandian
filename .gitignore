@@ -1,7 +1,7 @@
 /target/
 *.class
 !.mvn/wrapper/maven-wrapper.jar
-
+myself-define.propertiesgit
 ### STS ###
 .apt_generated
 .classpath
