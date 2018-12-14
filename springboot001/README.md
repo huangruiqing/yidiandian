@@ -12,3 +12,19 @@
  mvc.perfom(创建请求路径可以指定请求方式 get post...)
 ```
 [JdcbTemplate Api](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html)
+````
+ 注：如果在docker里面运行在jar同目录下放config目录也是读取不到的，Dockerfile里需要加上一句：ADD config/ /config/
+然后读出来的路径是：//config/application.properties
+//config/application.properties
+/config/application.properties (No such file or directory)
+docker config里面的配置文件优先级比jar包的高，会覆盖jar包里默认的配置，部署到其他服务器环境只需要修改对应配置就可以了
+Dockerfile配置里需要加上：ADD config/ /config/
+springboot读取外部配置文件的方法，如下优先级：
+第一种是在执行命令的目录下建config文件夹。（在jar包的同一目录下建config文件夹，执行命令需要在jar包目录下才行），然后把配置文件放到这个文件夹下。
+第二种是直接把配置文件放到jar包的同级目录。
+第三种在classpath下建一个config文件夹，然后把配置文件放进去。
+第四种是在classpath下直接放配置文件。
+springboot默认是优先读取它本身同级目录下的一个config/application.properties 文件的。
+在src/main/resources 文件夹下创建的application.properties 文件的优先级是最低的
+所以springboot启动读取外部配置文件，只需要在外面加一层配置文件覆盖默认的即可，不用修改代码。
+````
