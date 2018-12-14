@@ -1,6 +1,6 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
-myself-define.properties
+git-define.properties
 
 ### STS ###
 .apt_generated
