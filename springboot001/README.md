@@ -4,7 +4,28 @@
 - 3、thymeleaf  
 idea 遇到html修改 关闭缓存不生效，加入boot-devps-tool  
  需要Bulid xxx.html    
-- 4、swagger  
+- 4、swagger  在启动类同等级目录下建swagger
+```java
+ @Bean
+    public Docket createRestApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.example.demo.controller"))
+                .paths(PathSelectors.any())
+                .build();
+    }
+    private ApiInfo apiInfo() {
+
+        return new ApiInfoBuilder()
+             .title("Spring Boot中使用Swagger2构建RESTful APIs")
+                .description("向 DD 学习：http://blog.didispace.com/")
+            //    .termsOfServiceUrl("https://github.com/huangruiqing/yidiandian")
+                .contact(new Contact("huangruiqing","https://github.com/huangruiqing/yidiandian","email"))
+                .version("1.0")
+                .build();
+    }
+```
 - 5、freemaker 作为模板
 - 6、 boot 测试 
  @Before setUp() 新建MockMvc 通过 MockMvcBulifer.  
