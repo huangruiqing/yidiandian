@@ -19,7 +19,7 @@ import java.util.Properties;
 import java.util.Set;
 
 /**
- * Hello world!
+ * 使用freemaker 模板引擎
  */
 public class App {
     static Template template = null;
