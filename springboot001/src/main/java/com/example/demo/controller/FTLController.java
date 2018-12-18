@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.Map;
 
 /**
- *  freemaker 使用
+ *  freemaker 使用freemaker 模板引擎
  */
 @RestController()
 @ApiIgnore
