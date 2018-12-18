@@ -7,6 +7,8 @@ idea 遇到html修改 关闭缓存不生效，加入boot-devps-tool
 - 4、swagger  在启动类同等级目录下建Swagger  
 访问 localhost/swagger-ui.html
 ```java
+@Configuration
+@EnableSwagger2
 class Swagger2{
  @Bean
     public Docket createRestApi() {

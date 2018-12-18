@@ -2,12 +2,14 @@ package com.example.demo.controller;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.Date;
 import java.util.Map;
@@ -16,6 +18,7 @@ import java.util.Map;
  *  freemaker 使用
  */
 @RestController()
+@ApiIgnore
 @EnableAutoConfiguration
 public class FTLController {
     @Autowired
