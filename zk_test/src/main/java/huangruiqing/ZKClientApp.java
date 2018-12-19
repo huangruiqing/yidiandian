@@ -30,11 +30,12 @@ public class ZKClientApp {
           System.out.println("znodeName:"+zName);
       }
         zpath = "/zktest";
+        zk.deleteRecursive(zpath);
         System.out.println("Q:'/zktest' is exist ? A:"+zk.exists(zpath));
         if(!zk.exists(zpath)) {
             zk.create(zpath,new DbConfig("mysql","name","123456"),CreateMode.PERSISTENT);
         }
-       //boolean isRes =  zk.deleteRecursive(zpath);
+
         DbConfig dbConfig =  zk.readData(zpath,new Stat());
 
         System.out.println(dbConfig.toString());

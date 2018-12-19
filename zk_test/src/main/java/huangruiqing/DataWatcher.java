@@ -43,10 +43,19 @@ public class DataWatcher implements Watcher, Runnable {
     }
     @Override
     public void process(WatchedEvent event) {
-        System.out.printf(
-                "\nEvent Received: %s", event.toString());
+
+        System.out.println("观察到的类型："+event.getType()+",path:"+event.getPath());
+        try {
+            zk.exists(zooDataPath,this);
+        } catch (KeeperException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+       /* System.out.printf(
+                "\nEvent Received: %s", event.toString());*/
         //We will process only events of type NodeDataChanged
-        if (event.getType() == Event.EventType.NodeDataChanged) {
+        /*if (event.getType() == Event.EventType.NodeDataChanged) {
             try {
                 printData();
             } catch (InterruptedException e) {
@@ -54,7 +63,7 @@ public class DataWatcher implements Watcher, Runnable {
             } catch (KeeperException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
     }
     public static void main(String[] args)
             throws InterruptedException, KeeperException {
