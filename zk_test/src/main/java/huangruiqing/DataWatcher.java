@@ -1,6 +1,10 @@
 package huangruiqing;
 
+
+
+
 import org.apache.zookeeper.*;
+import org.apache.zookeeper.data.Stat;
 
 import java.io.IOException;
 
@@ -36,6 +40,8 @@ public class DataWatcher implements Watcher, Runnable {
         }
     }
     public void printData() throws InterruptedException, KeeperException {
+        Stat stat = new Stat();
+        //stat.
         zoo_data = zk.getData(zooDataPath, this, null);
         String zString = new String(zoo_data);
         // The following code prints the current content of the znode to the console:

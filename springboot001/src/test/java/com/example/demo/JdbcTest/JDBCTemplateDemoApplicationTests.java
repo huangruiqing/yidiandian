@@ -10,15 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 public class JDBCTemplateDemoApplicationTests {
 
-    @Autowired
+   /// @Autowired
     private IHrqBaseDictonaryDao hrqBaseDictionaryDao;
 
 
-    @Test
+  //  @Test
     public void test() throws Exception {
         // 插入5个用户
         HrqBaseDictionary hrqBaseDictionary = new HrqBaseDictionary();
