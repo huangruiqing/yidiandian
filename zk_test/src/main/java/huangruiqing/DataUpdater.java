@@ -8,10 +8,9 @@ package huangruiqing;
  */
 import java.io.IOException;
 import java.util.UUID;
-import org.apache.zookeeper.KeeperException;
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
-import org.apache.zookeeper.ZooKeeper;
+
+import org.apache.zookeeper.*;
+
 public class DataUpdater implements Watcher {
     private static String hostPort = "localhost:2181";
     private static String zooDataPath = "/zktest";
@@ -27,10 +26,15 @@ public class DataUpdater implements Watcher {
 
     // updates the znode path /MyConfig every 5 seconds with a new UUID string.
     public void run() throws InterruptedException, KeeperException {
+
+        if(zk.exists(zooDataPath,null) == null){
+            zk.create(zooDataPath,"context".getBytes(),ZooDefs.Ids.OPEN_ACL_UNSAFE,CreateMode.PERSISTENT);
+        }
         while (true) {
             String uuid = UUID.randomUUID().toString();
             byte zoo_data[] = uuid.getBytes();
             zk.setData(zooDataPath, zoo_data, -1);
+            System.out.println(">>>>>>>> zk set path:"+zooDataPath+",value byte[]:"+zoo_data);
             try {
                 Thread.sleep(5000); // Sleep for 5 secs
             } catch(InterruptedException e) {

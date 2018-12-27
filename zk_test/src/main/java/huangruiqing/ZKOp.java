@@ -293,10 +293,12 @@ public class ZKOp implements Watcher {
         Thread.sleep(1000);
 
         // 清理节点
-        zkWatch.deleteAllTestPath(false);
+        if(!(zkWatch.exists(PARENT_PATH,false) ==null)){
+            zkWatch.deleteAllTestPath(false);
+        }
 
         //-----------------第一步: 创建父节点 /p ------------------------//
-        if (zkWatch.createPath(PARENT_PATH, System.currentTimeMillis() + "", false)) {
+        if (zkWatch.exists(PARENT_PATH,false) ==null && zkWatch.createPath(PARENT_PATH, System.currentTimeMillis() + "", false)) {
 
             Thread.sleep(1000);
 

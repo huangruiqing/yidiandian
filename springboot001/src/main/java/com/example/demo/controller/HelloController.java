@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("hello")
 public class HelloController {
 
-    @Value("${dddd}")
+
     private String testNalue;
 
     @GetMapping("")

@@ -1,9 +1,11 @@
 package com.example.demo;
 
+import com.example.demo.common.MyTestConfig;
 import com.example.demo.controller.IndexController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -15,16 +17,22 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class DemoApplicationTests {
 
-    private MockMvc mvc;
-
+  //  private MockMvc mvc;
+@Autowired MyTestConfig myTestConfig;
   //  @Before
     public void setUp() throws Exception {
         //mvc = MockMvcBuilders.standaloneSetup(new IndexController()).build();
-        mvc = MockMvcBuilders.standaloneSetup(new IndexController()).build();
+ //       mvc = MockMvcBuilders.standaloneSetup(new IndexController()).build();
+    }
+
+
+    @Test
+    public  void testConfgi() {
+        System.out.println(">>>>>>>>>>>>>"+myTestConfig.getTestConfig());
     }
 
  //   @Test
