@@ -10,8 +10,7 @@
     <modules>
         <module>ftl_test</module>
         <module>zk_test</module>
-      <module>springcloud001</module>
-        <module>Spring_Cloud</module>
+      <module>SpringCloud</module>
     </modules>
     <packaging>pom</packaging>
 
