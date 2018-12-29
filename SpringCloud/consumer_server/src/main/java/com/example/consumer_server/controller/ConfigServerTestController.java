@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("config")
 public class ConfigServerTestController {
 
-    @Value("${spring.reids.host}")
+    @Value("${test}")
     private String  host;
-    @Value("${spring.reids.port}")
+    @Value("${test}")
     private String  port;
    @RequestMapping("/redisConfig")
     public String testConfig() {
