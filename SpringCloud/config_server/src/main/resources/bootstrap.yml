@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/huangruiqing/yidiandian
+          search-paths: SpringCloud/config-files/consumer
+          #username: ${git.useranme}
+          #password: ${git.password}
+          basedir: C:/My_Space/CVS_Config
+server:
+  port: 8079
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+     defaultZone: http://127.0.0.1:8761/eureka/

@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: consumer-server
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+      profile: dev
+      name: consumer
+
+server:
+  port: 8083
+
+eureka:
+  instance:
+      instance-id: consumer-server
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/

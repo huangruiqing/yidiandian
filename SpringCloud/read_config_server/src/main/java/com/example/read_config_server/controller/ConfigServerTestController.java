@@ -18,7 +18,7 @@ public class ConfigServerTestController {
 
     @Value("${test}")
     private String  host;
-    @Value("${test}")
+    @Value("${test2}")
     private String  port;
    @RequestMapping("/redisConfig")
     public String testConfig() {

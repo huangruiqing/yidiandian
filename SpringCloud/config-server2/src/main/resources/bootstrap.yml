@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native #读取本地文件
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: C:/My_Space/YIDIANDIAN/yidiandian/SpringCloud/config-files/consumer,C:/My_Space/YIDIANDIAN/yidiandian/SpringCloud/config-files/product
+        ##   C:/IdeaProjects/zzs2.0/usercenter/config-files/shared,C:/IdeaProjects/zzs2.0/usercenter/config-files/output
+server:
+  port: 8078
