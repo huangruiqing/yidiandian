@@ -9,6 +9,12 @@ spring:
       profile: dev
       name: consumer
 
+management:
+  endpoints:
+     web:
+       exposure:
+         include: refresh,health,info
+
 server:
   port: 8083
 
