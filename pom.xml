@@ -11,6 +11,7 @@
         <module>ftl_test</module>
         <module>zk_test</module>
       <module>SpringCloud</module>
+        <module>prducter_consumer</module>
     </modules>
     <packaging>pom</packaging>
 
