@@ -11,7 +11,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @ClassName BlockingQueueModel
- * @Description // 一句话描述这个类
+ * @Description // BlockingQueue的写法最简单。核心思想是，
+ * 把并发和容量控制封装在缓冲区中。
+ * 而BlockingQueue的性质天生满足这个要求
  * @Author huangrq
  * @Date 2019/1/9 17:52
  */
@@ -52,7 +54,7 @@ public class BlockingQueueModel implements IModel {
             // 不定期生产，模拟随机的用户请求
             Thread.sleep((long) (Math.random() * 1000));
             Task task = new Task(incrTaskNo.getAndIncrement());
-            /*if(task.getNo()==6){//生产着停止生产
+            if(task.getNo()==6){//生产着停止生产
                 while(!Thread.currentThread().isInterrupted()){
                     try {
                         Thread.sleep(1000);
@@ -65,7 +67,7 @@ public class BlockingQueueModel implements IModel {
             }else{
                 queue.put(task);
                 System.out.println("produce: " + task.getNo());
-            }*/
+            }
             queue.put(task);
             System.out.println("produce: " + task.getNo());
 
