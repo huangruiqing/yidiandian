@@ -12,6 +12,8 @@
         <module>zk_test</module>
       <module>SpringCloud</module>
         <module>prducter_consumer</module>
+        <module>rr</module>
+      <module>zheng_ze</module>
     </modules>
     <packaging>pom</packaging>
 
