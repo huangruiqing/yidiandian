@@ -20,6 +20,7 @@ public class AppTest {
     /**
      * 测试 "."
      * . 匹配任意字符
+     * 匹配除"\r\n"之外的任何单个字符。若要匹配包括"\r\n"在内的任意字符，请使用诸如"[\s\S]"之类的模式
      */
     @Test
     public void test_dian() {
@@ -90,6 +91,12 @@ public class AppTest {
         String content = "123";
         System.out.println(Pattern.matches(regex, content));
     }
+    // #### tips #######
+      /*  ? 当此字符紧随任何其他限定符（*、+、?、{n}、{n,}、{n,m}）之后时，匹配模式是"非贪心的"。
+      *  "非贪心的"模式匹配搜索到的、尽可能短的字符串，而默认的"贪心的"模式匹配搜索到的、尽可能长的字符串。
+      * 例如，在字符串"oooo"中，"o+?"只匹配单个"o"，而"o+"匹配所有"o"。
+      */
+  // ##############
     /**
      *  "?" 问号
      * "零次或一次匹配前面的字符或子表达式。
@@ -117,6 +124,10 @@ public class AppTest {
      * {n}
      * n 是非负整数。正好匹配 n 次。
      * 例如，"o{2}"与"Bob"中的"o"不匹配，但与"food"中的两个"o"匹配。
+     * {n,} n 是非负整数。正好匹配 n 次。
+     * 例如，"o{2}"与"Bob"中的"o"不匹配，但与"food"中的两个"o"匹配
+     * {n,m} m 和 n 是非负整数，其中 n <= m。匹配至少 n 次，至多 m 次。
+     * 例如，"o{1,3}"匹配"fooooood"中的头三个 o。'o{0,1}' 等效于 'o?'。注意：您不能将空格插入逗号和数字之间。
      */
     @Test
     public void test_N() {
@@ -126,6 +137,11 @@ public class AppTest {
         String regex2 = "\\d{2,}";
         String content2 = "123";
         System.out.println("{n,}= "+Pattern.matches(regex2, content2));
+        String regex3= "\\d{2,4}";
+        String content3 = "123";
+      //  String content3 = "1234";//true
+      //  String content3 = "12345"; //false
+        System.out.println("{n,m}= "+Pattern.matches(regex3, content3));
     }
     /**
      * "w"
