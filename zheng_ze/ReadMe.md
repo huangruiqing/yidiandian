@@ -2,7 +2,7 @@
 Regular Expression 表达式 | Description 描述
 --- | ---
 **.** | Matches any character
-**^**regex | Finds regex that must match at the beginning of the line.
+**^** regex | Finds regex that must match at the beginning of the line.
 regex$ | Finds regex that must match at the end of the line.
 [abc]| Set definition, can match the letter a or b or c.
 [abc][vz] | Set definition, can match a or b or c followed by either v or z.
