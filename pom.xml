@@ -14,6 +14,7 @@
         <module>prducter_consumer</module>
         <module>rr</module>
       <module>zheng_ze</module>
+        <module>my_lock</module>
     </modules>
     <packaging>pom</packaging>
 
