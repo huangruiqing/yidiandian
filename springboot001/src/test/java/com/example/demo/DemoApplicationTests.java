@@ -2,12 +2,14 @@ package com.example.demo;
 
 import com.example.demo.common.MyTestConfig;
 import com.example.demo.controller.IndexController;
+import com.example.demo.task.Task;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -18,11 +20,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
+@EnableAsync
 @SpringBootTest
 public class DemoApplicationTests {
 
   //  private MockMvc mvc;
-@Autowired MyTestConfig myTestConfig;
+//@Autowired MyTestConfig myTestConfig;
   //  @Before
     public void setUp() throws Exception {
         //mvc = MockMvcBuilders.standaloneSetup(new IndexController()).build();
@@ -30,10 +33,10 @@ public class DemoApplicationTests {
     }
 
 
-    @Test
+    /*@Test
     public  void testConfgi() {
         System.out.println(">>>>>>>>>>>>>"+myTestConfig.getTestConfig());
-    }
+    }*/
 
  //   @Test
     public void getIndex() throws Exception {
@@ -44,5 +47,16 @@ public class DemoApplicationTests {
        //         .andExpect(content().string(equalTo("index")));
     }
 
+    @Autowired
+    private Task task;
+
+    @Test
+    public void test() throws Exception {
+        task.doTaskOne();
+        task.doTaskTwo();
+        task.doTaskThree();
+
+
+    }
 
 }
