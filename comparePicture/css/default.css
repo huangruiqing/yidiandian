@@ -1,0 +1,80 @@
+body {
+    margin: 0px;
+}
+
+.row {
+    font-size: 0;
+}
+
+.center {
+    width: 80%;
+    margin: 0px auto;
+}
+
+.clo-1 {
+    font-size: 14px;
+    display: inline-block;
+    width: 10%;
+}
+
+.clo-2 {
+    font-size: 14px;
+    display: inline-block;
+    width: 10%;
+}
+
+.clo-3 {
+    font-size: 14px;
+    display: inline-block;
+    width: 10%;
+}
+
+.clo-4 {
+    display: inline-block;
+    width: 10%;
+}
+
+.clo-5 {
+    display: inline-block;
+    width: 10%;
+}
+
+.clo-6 {
+    display: inline-block;
+    width: 10%;
+}
+
+.clo-7 {
+    display: inline-block;
+    width: 10%;
+}
+
+.clo-8 {
+    display: inline-block;
+    width: 10%;
+}
+
+.clo-9 {
+    display: inline-block;
+    width: 10%;
+}
+
+.clo-10 {
+    display: inline-block;
+    width: 10%;
+}
+
+.bloc1 {
+    background-color: red;
+    height: 20px;
+}
+
+.bloc2 {
+    background-color: pink;
+    height: 20px;
+}
+
+.bloc3 {
+    background-color: blue;
+    height: 20px;
+}

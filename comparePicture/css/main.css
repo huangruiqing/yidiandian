@@ -1,0 +1,135 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+ul li {
+    list-style: none;
+    float: left;
+}
+
+.float_clear {
+    clear: both;
+}
+
+.clear_0 {
+    font-size: 0;
+}
+
+.float_left {
+    float: left;
+}
+
+.float_right {
+    float: right;
+}
+
+.navbar {
+    width: 80%;
+    line-height: 50px;
+    height: 50px;
+    background: papayawhip;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.navbar .ul_center {
+    display: inline-block;
+}
+
+.navbar .navbar_ul {
+    margin: 0 10px 0 10px;
+}
+
+.navbar .navbar_ul li {
+    line-height: 50px;
+    height: 50px;
+    float: left;
+    margin: 0 10px 0 10px;
+}
+
+.content {
+    margin-top: 100px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 40px;
+    height: 500px;
+    border: dotted 2px red;
+}
+
+.compare_img .pic_box {
+    border-radius: 5px;
+    margin: 20px;
+    padding: 1px;
+}
+
+.img_info {
+    border-radius: 5px;
+    margin: 20px;
+    padding: 1px;
+    font-size: 20px;
+    font-weight: bold;
+    background: pink;
+    height: 100%;
+}
+
+.img_name {
+    display: inline-block;
+    width: 100px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.compare_img img {
+    width: 100%;
+}
+
+.compare_btn {
+    text-align: center;
+}
+
+.ul_btn {
+    display: inline-block;
+    margin: 5px;
+}
+
+.ul_btn li {
+    margin: 0 100px;
+}
+
+.button {
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.contain {
+    margin-top: 100px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 40px;
+    height: 500px;
+    border: dotted 1px red;
+}
+
+.left {
+    font-size: 14px;
+    display: inline-block;
+    width: 40%;
+}
+
+.center {
+    font-size: 14px;
+    display: inline-block;
+    width: 20%;
+}
+
+.right {
+    font-size: 14px;
+    display: inline-block;
+    width: 40%;
+}
