@@ -10,6 +10,7 @@ package huangruiqing.Version01.service;
 public interface IModel {
 
     Runnable newRunnableConsumer();
+
     Runnable newRunnableProducer();
 
 }

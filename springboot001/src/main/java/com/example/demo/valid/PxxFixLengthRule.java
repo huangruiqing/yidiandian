@@ -16,11 +16,14 @@ import java.lang.annotation.Target;
 public @interface PxxFixLengthRule {
     /**
      * 固定长度
+     *
      * @return
      */
     public int fixLength();
+
     /**
      * 异常信息描述
+     *
      * @return
      */
     public String exceptionMsg() default "";

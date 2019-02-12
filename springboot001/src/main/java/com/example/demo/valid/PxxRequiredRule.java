@@ -17,11 +17,14 @@ public @interface PxxRequiredRule {
     /**
      * 必填项
      * true 为必填项
+     *
      * @return
      */
     public boolean required() default false;
+
     /**
      * 具体异常信息
+     *
      * @return
      */
     public String exceptionMsg() default "异常信息";

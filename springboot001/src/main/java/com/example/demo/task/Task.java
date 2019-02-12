@@ -14,7 +14,8 @@ import java.util.Random;
 @Component
 public class Task {
 
-    public static Random random =new Random();
+    public static Random random = new Random();
+
     @Async
     public void doTaskOne() throws Exception {
         System.out.println("开始做任务一");
@@ -23,6 +24,7 @@ public class Task {
         long end = System.currentTimeMillis();
         System.out.println("完成任务一，耗时：" + (end - start) + "毫秒");
     }
+
     @Async
     public void doTaskTwo() throws Exception {
         System.out.println("开始做任务二");
@@ -31,6 +33,7 @@ public class Task {
         long end = System.currentTimeMillis();
         System.out.println("完成任务二，耗时：" + (end - start) + "毫秒");
     }
+
     @Async
     public void doTaskThree() throws Exception {
         System.out.println("开始做任务三");

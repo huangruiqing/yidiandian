@@ -21,12 +21,13 @@ public class WaitNotifyModel2 implements IModel {
 
     private final Object BUFFER_LOCK = new Object();
     private final Queue<Task> buffer = new LinkedList<Task>();
-    private final int cap ;
+    private final int cap;
     private final AtomicInteger incrTaskNo = new AtomicInteger(0);
 
     public WaitNotifyModel2(int cap) {
         this.cap = cap;
     }
+
     @Override
     public Runnable newRunnableConsumer() {
         return new ConsumerImpl();
@@ -54,7 +55,7 @@ public class WaitNotifyModel2 implements IModel {
         }
     }
 
-    private  class ProducerImpl extends AbstractProducer {
+    private class ProducerImpl extends AbstractProducer {
 
         @Override
         public void product() throws InterruptedException {

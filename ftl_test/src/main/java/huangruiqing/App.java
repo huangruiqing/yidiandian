@@ -23,12 +23,13 @@ import java.util.Set;
  */
 public class App {
     static Template template = null;
+
     static {
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_28);//这里是对应的你使用jar包的版本号：<version>2.3.23</version>
         //第二个参数 为你对应存放.ftl文件的包名
         configuration.setClassForTemplateLoading(App.class, "/freemaker/template");
         try {
-             template = configuration.getTemplate("tt.ftl");
+            template = configuration.getTemplate("tt.ftl");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,7 +39,7 @@ public class App {
     public static void main(String[] args) throws IOException, TemplateException {
 
 
-     //   String result =  processTemplateIntoString(template,null);
+        //   String result =  processTemplateIntoString(template,null);
         System.out.println(App.class.getName());
         System.out.println(App.class.getSimpleName());
         System.out.println(App.class.getCanonicalName());

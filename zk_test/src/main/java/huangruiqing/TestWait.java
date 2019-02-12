@@ -12,8 +12,8 @@ public class TestWait {
     public static void main(String[] args) {
         System.out.println("start...");
 
-        synchronized (TestWait.class){
-            while (true){
+        synchronized (TestWait.class) {
+            while (true) {
                 try {
                     TestWait.class.wait();
                 } catch (InterruptedException e) {

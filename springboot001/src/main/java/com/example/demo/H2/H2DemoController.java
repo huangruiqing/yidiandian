@@ -19,15 +19,17 @@ import java.util.Optional;
 @RequestMapping("/h2")
 public class H2DemoController {
 
-    @Autowired private  DemoInfoRepository demoInfoRepository;
-    @RequestMapping("add")
-    public  List< DemoInfo> save() {
-        DemoInfo demoInfo =   demoInfoRepository.save(new DemoInfo("title1","context1"));
-        DemoInfo demoInfo2 =    demoInfoRepository.save(new DemoInfo("title2","context2"));
-        DemoInfo demoInfo3 =    demoInfoRepository.save(new DemoInfo("title3","context3"));
-        DemoInfo demoInfo4 =   demoInfoRepository.save(new DemoInfo("title4","context4"));
+    @Autowired
+    private DemoInfoRepository demoInfoRepository;
 
-        List< DemoInfo> list = new ArrayList<>();
+    @RequestMapping("add")
+    public List<DemoInfo> save() {
+        DemoInfo demoInfo = demoInfoRepository.save(new DemoInfo("title1", "context1"));
+        DemoInfo demoInfo2 = demoInfoRepository.save(new DemoInfo("title2", "context2"));
+        DemoInfo demoInfo3 = demoInfoRepository.save(new DemoInfo("title3", "context3"));
+        DemoInfo demoInfo4 = demoInfoRepository.save(new DemoInfo("title4", "context4"));
+
+        List<DemoInfo> list = new ArrayList<>();
         list.add(demoInfo);
         list.add(demoInfo2);
         list.add(demoInfo3);
@@ -36,17 +38,17 @@ public class H2DemoController {
     }
 
     @RequestMapping("/all")
-    public  List< DemoInfo> findAll() {
-        List< DemoInfo> list = (List<DemoInfo>) demoInfoRepository.findAll();
+    public List<DemoInfo> findAll() {
+        List<DemoInfo> list = (List<DemoInfo>) demoInfoRepository.findAll();
         return list;
     }
 
     @RequestMapping("/find/{id}")
     public DemoInfo findById(@PathVariable Long id) {
         Optional<DemoInfo> demoInfo = demoInfoRepository.findById(id);
-       if(!demoInfo.isPresent()){
-           return demoInfo.orElse(new DemoInfo("不存在id:"+id,""));
-       }
+        if (!demoInfo.isPresent()) {
+            return demoInfo.orElse(new DemoInfo("不存在id:" + id, ""));
+        }
         return demoInfo.get();
     }
 

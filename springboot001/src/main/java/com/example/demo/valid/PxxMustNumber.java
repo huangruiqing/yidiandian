@@ -9,8 +9,10 @@ package com.example.demo.valid;
 public @interface PxxMustNumber {
     /**
      * 必须为数字
+     *
      * @return
      */
     public boolean isNum() default false;
-    public String exceptionMsg () default "必须为数字";
+
+    public String exceptionMsg() default "必须为数字";
 }

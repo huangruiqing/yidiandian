@@ -54,17 +54,16 @@ public class BlockingQueueModel implements IModel {
             // 不定期生产，模拟随机的用户请求
             Thread.sleep((long) (Math.random() * 1000));
             Task task = new Task(incrTaskNo.getAndIncrement());
-            if(task.getNo()==6){//生产着停止生产
-                while(!Thread.currentThread().isInterrupted()){
+            if (task.getNo() == 6) {//生产着停止生产
+                while (!Thread.currentThread().isInterrupted()) {
                     try {
                         Thread.sleep(1000);
-                    }catch(InterruptedException ex)
-                    {
+                    } catch (InterruptedException ex) {
                         Thread.interrupted();
                     }
                 }
                 Thread.currentThread().interrupt();
-            }else{
+            } else {
                 queue.put(task);
                 System.out.println("produce: " + task.getNo());
             }

@@ -12,11 +12,11 @@ public class HrqBaseDictionary implements Serializable {
     private static final long serialVersionUID = 2365108015852407716L;
 
     private Long id;
-    private String code="001";
-    private String text="003";
-    private String type="004";
-    private String note="005";
-    private Integer status=0;
+    private String code = "001";
+    private String text = "003";
+    private String type = "004";
+    private String note = "005";
+    private Integer status = 0;
 
 
     public Long getId() {

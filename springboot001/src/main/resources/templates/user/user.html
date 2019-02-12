@@ -11,27 +11,31 @@ getUser:userName:<span th:text="${getUser?.userName}">userName</span>--age:<span
 <a href="/users">getUsers</a><br>
 getUsers:userName:
 <ul th:each="user : ${getUsers}">
-<li><span th:text="${user.userName}">userName</span>--age:<span th:text="${user.age}">age</span></li>
-</ul>>
+    <li><span th:text="${user.userName}">userName</span>--age:<span th:text="${user.age}">age</span></li>
+</ul>
+>
 <hr>
 <a href="/user">postUser</a><br>
 postUser:userName:
 <ul th:each="user : ${getUsers}">
     <li><span th:text="${user.userName}">userName</span>--age:<span th:text="${user.age}">age</span></li>
-</ul>>
+</ul>
+>
 <hr>
 <a href="/user">putUser</a><br>
 putUser:userName:
 <ul th:each="user : ${updateUser}">
     <li><span th:text="${user.userName}">userName</span>--age:<span th:text="${user.age}">age</span></li>
-</ul>>
+</ul>
+>
 <hr>
 <hr>
 <a href="/user">deleteUser</a><br>
 deleteUser:userName:
 <ul th:each="user : ${deleteUser}">
     <li><span th:text="${user.userName}">userName</span>--age:<span th:text="${user.age}">age</span></li>
-</ul>>
+</ul>
+>
 <hr>
 </body>
 </html>

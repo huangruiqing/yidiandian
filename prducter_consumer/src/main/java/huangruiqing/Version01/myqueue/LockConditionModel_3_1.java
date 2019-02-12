@@ -14,7 +14,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @ClassName LockConditionModel_3_1
- * @Description  我们要保证理解wait && notify机制。
+ * @Description 我们要保证理解wait && notify机制。
  * 实现时可以使用Object类提供的wait()方法与notifyAll()方法，
  * 但更推荐的方式是使用java.util.concurrent包提供的Lock && Condition。
  * @Author huangrq
@@ -25,8 +25,9 @@ public class LockConditionModel_3_1 implements IModel {
     private final Lock BUFFER_LOCK = new ReentrantLock();
     private final Condition BUFFER_COND = BUFFER_LOCK.newCondition();
     private final Queue<Task> buffer = new LinkedList<>();
-    private final  int cap;
+    private final int cap;
     private final AtomicInteger incTaskNo = new AtomicInteger(0);
+
     public LockConditionModel_3_1(int cap) {
         this.cap = cap;
     }
@@ -61,6 +62,7 @@ public class LockConditionModel_3_1 implements IModel {
             }
         }
     }
+
     private class ProducerImpl extends AbstractProducer {
         @Override
         public void product() throws InterruptedException {
@@ -80,6 +82,7 @@ public class LockConditionModel_3_1 implements IModel {
             }
         }
     }
+
     public static void main(String[] args) {
         IModel model = new LockConditionModel_3_1(3);
         for (int i = 0; i < 2; i++) {

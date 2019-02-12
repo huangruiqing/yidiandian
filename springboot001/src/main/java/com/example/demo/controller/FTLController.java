@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.Map;
 
 /**
- *  freemaker 使用freemaker 模板引擎
+ * freemaker 使用freemaker 模板引擎
  */
 @RestController()
 @ApiIgnore
@@ -23,6 +23,7 @@ import java.util.Map;
 public class FTLController {
     @Autowired
     private Configuration configuration;
+
     @RequestMapping("/ftl")
     public String welcome2(Map model) throws Exception {
         model.put("time", new Date());
@@ -35,7 +36,6 @@ public class FTLController {
 
         return content;
     }
-
 
 
 }

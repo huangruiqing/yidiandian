@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyTestConfig {
     @Value("${test.config.1}")
-    private  String testConfig;
+    private String testConfig;
 
     public String getTestConfig() {
         return testConfig;

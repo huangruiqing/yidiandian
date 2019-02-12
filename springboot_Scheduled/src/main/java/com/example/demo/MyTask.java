@@ -4,12 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @ClassName MySchedlues
+ * @ClassName MyTask
  * @Description // 一句话描述这个类
  * @Author huangrq
  * @Date 2019/2/11 11:12
  */
-public class MySchedlues implements Runnable {
+public class MyTask implements Runnable {
 
     public String getDateStr(Date date){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @Date 2018/12/14 18:06
  */
 @Component
-@ConfigurationProperties(prefix="myself")
+@ConfigurationProperties(prefix = "myself")
 @PropertySource("classpath:myself-define.properties")
 public class UserDefinedSource {
 

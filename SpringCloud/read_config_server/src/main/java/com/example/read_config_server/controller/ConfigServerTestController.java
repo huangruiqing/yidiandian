@@ -17,13 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class ConfigServerTestController {
 
     @Value("${test}")
-    private String  host;
+    private String host;
     @Value("${test2}")
-    private String  port;
-   @RequestMapping("/redisConfig")
+    private String port;
+
+    @RequestMapping("/redisConfig")
     public String testConfig() {
 
-        return this.host+":"+this.port;
+        return this.host + ":" + this.port;
     }
 
 

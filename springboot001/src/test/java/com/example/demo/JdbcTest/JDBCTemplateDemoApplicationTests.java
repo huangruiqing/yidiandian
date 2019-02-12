@@ -14,20 +14,20 @@ import org.springframework.test.context.junit4.SpringRunner;
 //@SpringBootTest
 public class JDBCTemplateDemoApplicationTests {
 
-   /// @Autowired
+    /// @Autowired
     private IHrqBaseDictonaryDao hrqBaseDictionaryDao;
 
 
-  //  @Test
+    //  @Test
     public void test() throws Exception {
         // 插入5个用户
         HrqBaseDictionary hrqBaseDictionary = new HrqBaseDictionary();
         hrqBaseDictionary.setText("汉字测试1");
-       int con = hrqBaseDictionaryDao.create(hrqBaseDictionary);
-        System.out.println("res:"+con);
-       // Assert.
+        int con = hrqBaseDictionaryDao.create(hrqBaseDictionary);
+        System.out.println("res:" + con);
+        // Assert.
         // 查数据库，应该有5个用户
-       // Assert.assertEquals(5, hrqBaseDictionaryDao.create(hrqBaseDictionary));
+        // Assert.assertEquals(5, hrqBaseDictionaryDao.create(hrqBaseDictionary));
 
 
         // 查数据库，应该有5个用户

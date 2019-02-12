@@ -31,9 +31,9 @@ public class JunitTest {
 
 
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.DAY_OF_MONTH,1);
-        calendar.add(Calendar.MONTH,1);
-        calendar.add(Calendar.DAY_OF_MONTH,-1);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        calendar.add(Calendar.MONTH, 1);
+        calendar.add(Calendar.DAY_OF_MONTH, -1);
         Date time = calendar.getTime();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String format = df.format(time);

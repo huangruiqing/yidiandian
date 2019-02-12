@@ -66,16 +66,16 @@
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
         <!--mysql-->
-       <!-- <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.21</version>
-        </dependency>-->
-       <!-- <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <scope>runtime</scope>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>mysql</groupId>
+             <artifactId>mysql-connector-java</artifactId>
+             <version>5.1.21</version>
+         </dependency>-->
+        <!-- <dependency>
+             <groupId>org.hsqldb</groupId>
+             <artifactId>hsqldb</artifactId>
+             <scope>runtime</scope>
+         </dependency>-->
         <!-- spring data jpa -->
 
         <dependency>

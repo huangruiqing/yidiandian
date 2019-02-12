@@ -12,7 +12,8 @@ import javax.persistence.Id;
  */
 @Entity
 public class DemoInfo {
-    @Id@GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
     private String title;
     private String context;

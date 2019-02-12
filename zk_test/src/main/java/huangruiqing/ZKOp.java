@@ -6,6 +6,7 @@ package huangruiqing;
  * @Author huangrq
  * @Date 2018/12/20 19:36
  */
+
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -22,31 +23,49 @@ import org.apache.zookeeper.data.Stat;
 /**
  * Zookeeper Wathcher
  * 本类就是一个Watcher类（实现了org.apache.zookeeper.Watcher类）
+ *
  * @author（alienware）
  * @since 2015-6-14
  */
 public class ZKOp implements Watcher {
 
-    /** 定义原子变量 */
+    /**
+     * 定义原子变量
+     */
     AtomicInteger seq = new AtomicInteger();
-    /** 定义session失效时间 */
+    /**
+     * 定义session失效时间
+     */
     private static final int SESSION_TIMEOUT = 10000;
-    /** zookeeper服务器地址 */
+    /**
+     * zookeeper服务器地址
+     */
     private static final String CONNECTION_ADDR = "127.0.0.1:2181";
-    /** zk父路径设置 */
+    /**
+     * zk父路径设置
+     */
     private static final String PARENT_PATH = "/zktest";
-    /** zk子路径设置 */
-    private static final String CHILDREN_PATH = PARENT_PATH+"/01";
-    /** 进入标识 */
+    /**
+     * zk子路径设置
+     */
+    private static final String CHILDREN_PATH = PARENT_PATH + "/01";
+    /**
+     * 进入标识
+     */
     private static final String LOG_PREFIX_OF_MAIN = "【Main】";
-    /** zk变量 */
+    /**
+     * zk变量
+     */
     private ZooKeeper zk = null;
-    /**用于等待zookeeper连接建立之后 通知阻塞程序继续向下执行 */
+    /**
+     * 用于等待zookeeper连接建立之后 通知阻塞程序继续向下执行
+     */
     private CountDownLatch connectedSemaphore = new CountDownLatch(1);
 
     /**
      * 创建ZK连接
-     * @param connectAddr ZK服务器地址列表
+     *
+     * @param connectAddr    ZK服务器地址列表
      * @param sessionTimeout Session超时时间
      */
     public void createConnection(String connectAddr, int sessionTimeout) {
@@ -76,6 +95,7 @@ public class ZKOp implements Watcher {
 
     /**
      * 创建节点
+     *
      * @param path 节点路径
      * @param data 数据内容
      * @return
@@ -92,7 +112,7 @@ public class ZKOp implements Watcher {
                             /**所有可见*/
                             Ids.OPEN_ACL_UNSAFE,
                             /**永久存储*/
-                            CreateMode.PERSISTENT ) +
+                            CreateMode.PERSISTENT) +
                     ", content: " + data);
         } catch (Exception e) {
             e.printStackTrace();
@@ -103,6 +123,7 @@ public class ZKOp implements Watcher {
 
     /**
      * 读取指定节点数据内容
+     *
      * @param path 节点路径
      * @return
      */
@@ -118,6 +139,7 @@ public class ZKOp implements Watcher {
 
     /**
      * 更新指定节点数据内容
+     *
      * @param path 节点路径
      * @param data 数据内容
      * @return
@@ -136,8 +158,7 @@ public class ZKOp implements Watcher {
     /**
      * 删除指定节点
      *
-     * @param path
-     *            节点path
+     * @param path 节点path
      */
     public void deleteNode(String path) {
         try {
@@ -150,6 +171,7 @@ public class ZKOp implements Watcher {
 
     /**
      * 判断指定节点是否存在
+     *
      * @param path 节点路径
      */
     public Stat exists(String path, boolean needWatch) {
@@ -163,6 +185,7 @@ public class ZKOp implements Watcher {
 
     /**
      * 获取子节点
+     *
      * @param path 节点路径
      */
     private List<String> getChildren(String path, boolean needWatch) {
@@ -179,10 +202,10 @@ public class ZKOp implements Watcher {
      * 删除所有节点
      */
     public void deleteAllTestPath(boolean needWatch) {
-        if(this.exists(CHILDREN_PATH, needWatch) != null){
+        if (this.exists(CHILDREN_PATH, needWatch) != null) {
             this.deleteNode(CHILDREN_PATH);
         }
-        if(this.exists(PARENT_PATH, needWatch) != null){
+        if (this.exists(PARENT_PATH, needWatch) != null) {
             this.deleteNode(PARENT_PATH);
         }
     }
@@ -254,23 +277,20 @@ public class ZKOp implements Watcher {
             //删除节点
             else if (EventType.NodeDeleted == eventType) {
                 System.out.println(logPrefix + "节点 " + path + " 被删除");
-            }
-            else {
+            } else {
                 System.out.println(logPrefix + "其他事件：" + eventType);
-            };
-        }
-        else if (KeeperState.Disconnected == keeperState) {
+            }
+            ;
+        } else if (KeeperState.Disconnected == keeperState) {
             System.out.println(logPrefix + "与ZK服务器断开连接");
-        }
-        else if (KeeperState.AuthFailed == keeperState) {
+        } else if (KeeperState.AuthFailed == keeperState) {
             System.out.println(logPrefix + "权限检查失败");
-        }
-        else if (KeeperState.Expired == keeperState) {
+        } else if (KeeperState.Expired == keeperState) {
             System.out.println(logPrefix + "会话失效");
-        }
-        else {
+        } else {
             System.out.println(logPrefix + "其他状态：" + keeperState);
-        };
+        }
+        ;
 
         System.out.println("--------------------------------------------");
 
@@ -279,6 +299,7 @@ public class ZKOp implements Watcher {
     /**
      * <B>方法名称：</B>测试zookeeper监控<BR>
      * <B>概要说明：</B>主要测试watch功能<BR>
+     *
      * @param args
      * @throws Exception
      */
@@ -293,12 +314,12 @@ public class ZKOp implements Watcher {
         Thread.sleep(1000);
 
         // 清理节点
-        if(!(zkWatch.exists(PARENT_PATH,false) ==null)){
+        if (!(zkWatch.exists(PARENT_PATH, false) == null)) {
             zkWatch.deleteAllTestPath(false);
         }
 
         //-----------------第一步: 创建父节点 /p ------------------------//
-        if (zkWatch.exists(PARENT_PATH,false) ==null && zkWatch.createPath(PARENT_PATH, System.currentTimeMillis() + "", false)) {
+        if (zkWatch.exists(PARENT_PATH, false) == null && zkWatch.createPath(PARENT_PATH, System.currentTimeMillis() + "", false)) {
 
             Thread.sleep(1000);
 

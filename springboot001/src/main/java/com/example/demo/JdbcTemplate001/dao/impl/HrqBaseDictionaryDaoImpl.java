@@ -16,9 +16,10 @@ import org.springframework.stereotype.Service;
 public class HrqBaseDictionaryDaoImpl implements IHrqBaseDictonaryDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
     @Override
     public int create(HrqBaseDictionary hrqBaseDictionary) {
         return jdbcTemplate.update("insert into hrq_base_dictionary (code,text,type,status,note) values (?,?,?,?,?)",
-                hrqBaseDictionary.getCode(),hrqBaseDictionary.getText(),hrqBaseDictionary.getType(),hrqBaseDictionary.getStatus(),hrqBaseDictionary.getNote());
+                hrqBaseDictionary.getCode(), hrqBaseDictionary.getText(), hrqBaseDictionary.getType(), hrqBaseDictionary.getStatus(), hrqBaseDictionary.getNote());
     }
 }

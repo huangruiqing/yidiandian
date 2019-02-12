@@ -23,7 +23,7 @@ public class TestFeginController {
     @RequestMapping("/add")
     public String add(@PathParam("a") int a, @PathParam("b") int b) {
 
-        System.out.printf("参数： a=%d,b=%d,result=%d",a,b,(a+b));
-        return consumerService.add(a,b);
+        System.out.printf("参数： a=%d,b=%d,result=%d", a, b, (a + b));
+        return consumerService.add(a, b);
     }
 }

@@ -16,5 +16,4 @@ public interface IHrqBaseDictonaryDao {
     int create(HrqBaseDictionary hrqBaseDictionary);
 
 
-
 }

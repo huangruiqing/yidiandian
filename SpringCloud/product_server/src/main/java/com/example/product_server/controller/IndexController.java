@@ -17,7 +17,7 @@ public class IndexController {
 
     @RequestMapping("/add")
     public String add(@PathParam("a") int a, @PathParam("b") int b) {
-        System.out.printf("参数： a=%d,b=%d,result=%d",a,b,(a+b));
-        return (a+b)+"_server1";
+        System.out.printf("参数： a=%d,b=%d,result=%d", a, b, (a + b));
+        return (a + b) + "_server1";
     }
 }

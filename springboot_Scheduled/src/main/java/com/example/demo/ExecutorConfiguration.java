@@ -1,4 +1,4 @@
-package com.baiwang.cloud.output.api.provider.config;
+package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -15,13 +15,10 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Configuration
 public class ExecutorConfiguration
 {
-    @Value("${async.executor.thread.core_pool_size:100}")
-    private int corePoolSize;
-    @Value("${async.executor.thread.max_pool_size:200}")
-    private int maxPoolSize;
-    @Value("${async.executor.thread.queue_capacity:500}")
-    private int queueCapacity;
-    private String threadNamePrefix = "output-api-ExecutorThread-";
+    private int corePoolSize=100;
+    private int maxPoolSize=200;
+    private int queueCapacity=500;
+    private String threadNamePrefix = "custom-sales-ExecutorThread-";
 
     @Bean
     public ThreadPoolTaskExecutor executor() {

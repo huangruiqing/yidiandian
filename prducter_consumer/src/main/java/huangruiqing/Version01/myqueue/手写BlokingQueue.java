@@ -13,6 +13,4 @@ public class 手写BlokingQueue {
     private final LinkedList<Integer> queue = new LinkedList<>();
 
 
-
-
 }

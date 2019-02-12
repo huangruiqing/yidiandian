@@ -56,9 +56,9 @@ public class LockConditionModel_3_2 implements IModel {
                     NOT_EMPTY.await();
                 }
                 Task task = buffer.poll();
-                System.out.println(Thread.currentThread().getName()+"-> consumer before:"+bufLen.get());
+                System.out.println(Thread.currentThread().getName() + "-> consumer before:" + bufLen.get());
                 newBufSize = bufLen.decrementAndGet();
-                System.out.println(Thread.currentThread().getName()+"-> consumer after:"+bufLen.get());
+                System.out.println(Thread.currentThread().getName() + "-> consumer after:" + bufLen.get());
                 assert task != null;
                 // 固定时间范围的消费，模拟相对稳定的服务器处理过程
                 Thread.sleep(500 + (long) (Math.random() * 500));
@@ -95,9 +95,9 @@ public class LockConditionModel_3_2 implements IModel {
                 }
                 Task task = new Task(increTaskNo.getAndIncrement());
                 buffer.offer(task);
-                System.out.println(Thread.currentThread().getName()+"-> producer before:"+bufLen.get());
+                System.out.println(Thread.currentThread().getName() + "-> producer before:" + bufLen.get());
                 newBufSize = bufLen.incrementAndGet();
-                System.out.println(Thread.currentThread().getName()+"-> producer after:"+bufLen.get());
+                System.out.println(Thread.currentThread().getName() + "-> producer after:" + bufLen.get());
                 System.out.println("produce: " + task.getNo());
                 if (newBufSize < cap) {
                     NOT_FULL.signalAll();
@@ -123,6 +123,7 @@ public class LockConditionModel_3_2 implements IModel {
      * 在头部出队，尾部入队
      * 在poll()方法中只操作head
      * 在offer()方法中只操作tail
+     *
      * @param <E>
      */
     private static class Buffer<E> {
@@ -159,7 +160,7 @@ public class LockConditionModel_3_2 implements IModel {
     public static void main(String[] args) {
         IModel model = new LockConditionModel_3_2(3);
         for (int i = 0; i < 2; i++) {
-         //   new Thread(model.newRunnableConsumer()).start();
+            //   new Thread(model.newRunnableConsumer()).start();
         }
         for (int i = 0; i < 5; i++) {
             new Thread(model.newRunnableProducer()).start();

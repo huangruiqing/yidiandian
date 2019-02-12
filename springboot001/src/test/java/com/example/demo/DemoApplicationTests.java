@@ -24,12 +24,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 public class DemoApplicationTests {
 
-  //  private MockMvc mvc;
+    //  private MockMvc mvc;
 //@Autowired MyTestConfig myTestConfig;
-  //  @Before
+    //  @Before
     public void setUp() throws Exception {
         //mvc = MockMvcBuilders.standaloneSetup(new IndexController()).build();
- //       mvc = MockMvcBuilders.standaloneSetup(new IndexController()).build();
+        //       mvc = MockMvcBuilders.standaloneSetup(new IndexController()).build();
     }
 
 
@@ -38,13 +38,13 @@ public class DemoApplicationTests {
         System.out.println(">>>>>>>>>>>>>"+myTestConfig.getTestConfig());
     }*/
 
- //   @Test
+    //   @Test
     public void getIndex() throws Exception {
-       // ResultActions resultActions = mvc.perform(MockMvcRequestBuilders.get("/index").accept(MediaType.APPLICATION_JSON));
-     //   resultActions.andExpect(status().isOk());
-      //  resultActions.andExpect(content().string(equalTo("index")));
+        // ResultActions resultActions = mvc.perform(MockMvcRequestBuilders.get("/index").accept(MediaType.APPLICATION_JSON));
+        //   resultActions.andExpect(status().isOk());
+        //  resultActions.andExpect(content().string(equalTo("index")));
         //mvc.perform(MockMvcRequestBuilders.get("/index").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
-       //         .andExpect(content().string(equalTo("index")));
+        //         .andExpect(content().string(equalTo("index")));
     }
 
     @Autowired

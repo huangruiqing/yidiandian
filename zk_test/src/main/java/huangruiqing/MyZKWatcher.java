@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Author huangrq
  * @Date 2018/12/24 20:09
  */
-public class MyZKWatcher implements Watcher ,Runnable{
+public class MyZKWatcher implements Watcher, Runnable {
 
     /**
      * 定义原子变量
@@ -23,14 +23,14 @@ public class MyZKWatcher implements Watcher ,Runnable{
      */
     private CountDownLatch connectedSemaphore = new CountDownLatch(1);
     private String hostPath = "127.0.0.1:2181";
-    private  String zooPath = "/zktest";
-    private ZooKeeper zk = new ZooKeeper(hostPath,2000,this);
+    private String zooPath = "/zktest";
+    private ZooKeeper zk = new ZooKeeper(hostPath, 2000, this);
 
     public MyZKWatcher() throws IOException {
         zk = this.getZKInstance();
         try {
-            if(zk.exists(zooPath,this) == null){
-                zk.create(zooPath,"context".getBytes(),ZooDefs.Ids.OPEN_ACL_UNSAFE,CreateMode.PERSISTENT);
+            if (zk.exists(zooPath, this) == null) {
+                zk.create(zooPath, "context".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
             }
         } catch (KeeperException e) {
             e.printStackTrace();
@@ -39,7 +39,7 @@ public class MyZKWatcher implements Watcher ,Runnable{
         }
     }
 
-    public ZooKeeper getZKInstance () {
+    public ZooKeeper getZKInstance() {
         return zk;
     }
 
@@ -47,7 +47,7 @@ public class MyZKWatcher implements Watcher ,Runnable{
     @Override
     public void process(WatchedEvent event) {
 
-        System.out.printf(">>>>>>> zookeeper path :%s ,WatchedEvent : %s \n" ,event.getPath(),event.getType().name());
+        System.out.printf(">>>>>>> zookeeper path :%s ,WatchedEvent : %s \n", event.getPath(), event.getType().name());
 
         try {
             Thread.sleep(200);

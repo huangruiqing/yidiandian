@@ -15,8 +15,10 @@ public class DbConfig implements Serializable {
     private String dbName;
     private String dbPassword;
 
-    public  DbConfig(){}
-    public  DbConfig(String dbType, String dbName, String dbPassword){
+    public DbConfig() {
+    }
+
+    public DbConfig(String dbType, String dbName, String dbPassword) {
         this.dbName = dbName;
         this.dbType = dbType;
         this.dbPassword = dbPassword;

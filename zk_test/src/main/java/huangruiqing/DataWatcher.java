@@ -1,8 +1,6 @@
 package huangruiqing;
 
 
-
-
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 
@@ -28,7 +26,7 @@ public class DataWatcher implements Watcher, Runnable {
                 try {
                     //Create the znode if it doesn't exist, with the following code:
                     if (zk.exists(zooDataPath, this) == null) {
-                       String res = zk.create(zooDataPath, "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+                        String res = zk.create(zooDataPath, "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
                         System.out.println(">>>>>>不存在 /zktest 新增一个/zktest");
                     }
                 } catch (KeeperException | InterruptedException e) {
@@ -39,20 +37,22 @@ public class DataWatcher implements Watcher, Runnable {
             e.printStackTrace();
         }
     }
+
     public void printData() throws InterruptedException, KeeperException {
         Stat stat = new Stat();
         //stat.
         zoo_data = zk.getData(zooDataPath, this, null);
         String zString = new String(zoo_data);
         // The following code prints the current content of the znode to the console:
-        System.out.printf("\nCurrent Data @ ZK Path %s: %s", zooDataPath, "update>>>value:["+zString+"]");
+        System.out.printf("\nCurrent Data @ ZK Path %s: %s", zooDataPath, "update>>>value:[" + zString + "]");
     }
+
     @Override
     public void process(WatchedEvent event) {
 
-        System.out.println("观察到的类型："+event.getType()+",path:"+event.getPath());
+        System.out.println("观察到的类型：" + event.getType() + ",path:" + event.getPath());
         try {
-            zk.exists(zooDataPath,this);
+            zk.exists(zooDataPath, this);
         } catch (KeeperException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -71,12 +71,14 @@ public class DataWatcher implements Watcher, Runnable {
             }
         }*/
     }
+
     public static void main(String[] args)
             throws InterruptedException, KeeperException {
         DataWatcher dataWatcher = new DataWatcher();
         dataWatcher.printData();
         dataWatcher.run();
     }
+
     public void run() {
         try {
             synchronized (this) {

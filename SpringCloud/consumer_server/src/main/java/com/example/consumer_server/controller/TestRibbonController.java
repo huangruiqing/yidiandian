@@ -21,23 +21,24 @@ public class TestRibbonController {
 
     @Autowired
     private RestTemplate restTemplate;
+
     @RequestMapping("/add")
     public String add(@PathParam("a") int a, @PathParam("b") int b) {
-        System.out.printf("参数： a=%d,b=%d,result=%d",a,b,(a+b));
-      // return String.valueOf(a+b);
-        return  restTemplate.getForEntity("http://PRODUCT-SERVER/index/add?a="+a+"&b="+b,String.class).getBody();
+        System.out.printf("参数： a=%d,b=%d,result=%d", a, b, (a + b));
+        // return String.valueOf(a+b);
+        return restTemplate.getForEntity("http://PRODUCT-SERVER/index/add?a=" + a + "&b=" + b, String.class).getBody();
     }
 
     @RequestMapping("/add2")
-    @HystrixCommand(fallbackMethod="error")
-  public String add2(@PathParam("a") int a, @PathParam("b") int b) {
-        System.out.printf("参数： a=%d,b=%d,result=%d",a,b,(a+b));
+    @HystrixCommand(fallbackMethod = "error")
+    public String add2(@PathParam("a") int a, @PathParam("b") int b) {
+        System.out.printf("参数： a=%d,b=%d,result=%d", a, b, (a + b));
         // return String.valueOf(a+b);
-        return  restTemplate.getForEntity("http://PRODUCT-SERVER/index/add?a="+a+"&b="+b,String.class).getBody();
+        return restTemplate.getForEntity("http://PRODUCT-SERVER/index/add?a=" + a + "&b=" + b, String.class).getBody();
     }
 
     public String error(@PathParam("a") int a, @PathParam("b") int b) {
-        return "error11"+a+b;
+        return "error11" + a + b;
     }
 }
 

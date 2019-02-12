@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name="product-server" ,fallback = ConsumerServiceHystrixImpl.class)
+@FeignClient(name = "product-server", fallback = ConsumerServiceHystrixImpl.class)
 @Component
 public interface IConsumerService {
 

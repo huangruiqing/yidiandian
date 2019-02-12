@@ -18,7 +18,7 @@ public class TestLength {
         Field[] fields = o.getClass().getDeclaredFields();
         for (Field field : fields) {
 
-            System.out.println(getFieldVaule(o,field).length());
+            System.out.println(getFieldVaule(o, field).length());
            /* String field_methoe_name="get"+field.getName().substring(0,1).toUpperCase()+field.getName().substring(1);
             Method field_methoe=o.getClass().getMethod(field_methoe_name, null);
             System.out.println(field_methoe_name+"--->"+field_methoe.invoke(o, null).toString());*/
@@ -26,20 +26,20 @@ public class TestLength {
             //   String ss = (String)field_methoe.invoke(o, null);
             //      System.out.println(field_methoe_name+":"+field_methoe.invoke(o, null));
             //System.out.println(field_methoe_name+":"+ss);
-        //    System.out.println(field_methoe_name + ":" + field_methoe.invoke(o, null) + "_" + field_methoe.invoke(o, null).toString().length());
+            //    System.out.println(field_methoe_name + ":" + field_methoe.invoke(o, null) + "_" + field_methoe.invoke(o, null).toString().length());
         }
     }
 
     public static String getFieldVaule(Object o, Field field)
             throws NoSuchMethodException, IllegalAccessException,
             InvocationTargetException {
-        try{
-            String field_methoe_name="get"+field.getName().substring(0,1).toUpperCase()+field.getName().substring(1);
-            Method field_methoe=o.getClass().getMethod(field_methoe_name, null);
-            System.out.println(field_methoe_name+"--->"+field_methoe.invoke(o, null));
+        try {
+            String field_methoe_name = "get" + field.getName().substring(0, 1).toUpperCase() + field.getName().substring(1);
+            Method field_methoe = o.getClass().getMethod(field_methoe_name, null);
+            System.out.println(field_methoe_name + "--->" + field_methoe.invoke(o, null));
             Object ob = field_methoe.invoke(o, null);
-            return  ob == null ? null :ob.toString();
-        }catch(Exception e){
+            return ob == null ? null : ob.toString();
+        } catch (Exception e) {
             return null;
         }
 

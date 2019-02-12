@@ -22,7 +22,7 @@ import javax.sql.DataSource;
  * @Date 2019/1/14 20:56
  */
 @Configuration
-@MapperScan(basePackages = "com.huang.datasourcemulti.mapper.test2", sqlSessionTemplateRef  = "test2SqlSessionTemplate")
+@MapperScan(basePackages = "com.huang.datasourcemulti.mapper.test2", sqlSessionTemplateRef = "test2SqlSessionTemplate")
 public class DataSourceConfig2 {
 
     @Bean(name = "test1DataSource")
