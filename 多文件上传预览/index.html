@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>多文件预览，上传选择</title>
+    <link rel="stylesheet" type="text/css" href="css/mian.css"/>
+</head>
+<body>
+
+<form action="index.html" method="post">
+    <input type="file" multiple="multiple" name="doc" onchange="javascript:multiplePrivew(this);"/>
+</form>
+<h1>图片预览</h1>
+<hr/>
+
+<ul id="img_ul">
+
+</ul>
+
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script src="js/preview.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
