@@ -22,8 +22,9 @@ public class TestService {
     private TestSlaveMapper testSlaveMapper;
 
     public int getCount() {
-
-        if(new Random().nextInt(3)>1){
+        int i = new Random().nextInt(3);
+        System.out.println(">>>>>>>>>>>>>>"+i);
+        if (i > 1) {
             System.out.println("slave db");
             return testSlaveMapper.getCount();
         }

@@ -46,11 +46,12 @@ public class DynamicDataSourceContextHolder {
      * 采用简单生成随机数的方式切换不同的从库
      */
     public static void setSlave() {
-        if (new Random().nextInt(2) > 0) {
+        DynamicDataSourceContextHolder.set(DataSourceKey.DB_SLAVE1);
+       /* if (new Random().nextInt(2) > 0) {
             DynamicDataSourceContextHolder.set(DataSourceKey.DB_SLAVE2);
         } else {
             DynamicDataSourceContextHolder.set(DataSourceKey.DB_SLAVE1);
-        }
+        }*/
     }
 
 }

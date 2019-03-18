@@ -25,7 +25,6 @@ import java.util.Map;
  * @Date 2019/3/18 14:50
  */
 @MapperScan(basePackages = "com.hrq.dbsmutli.datasourcemulti.dao.mapper")
-@ConfigurationProperties(prefix = "multiple.datasource.master")
 @Configuration
 public class DynamicDataSourceConfiguration {
 
@@ -34,15 +33,16 @@ public class DynamicDataSourceConfiguration {
      * 需要你在application.properties中配置，详细信息看下面贴出的application.properties文件。
      */
     @Bean
+    @ConfigurationProperties(prefix = "multiple.datasource.master")
     public DataSource dbMaster() {
         return DruidDataSourceBuilder.create().build();
     }
 
-   /* @Bean
+    @Bean
     @ConfigurationProperties(prefix = "multiple.datasource.slave1")
     public DataSource dbSlave1() {
         return DruidDataSourceBuilder.create().build();
-    }*/
+    }
 
    /* @Bean
     @ConfigurationProperties(prefix = "multiple.datasource.slave2")
@@ -61,8 +61,9 @@ public class DynamicDataSourceConfiguration {
         dataSource.setDefaultTargetDataSource(dbMaster());
         Map<Object, Object> dataSourceMap = new HashMap<>(4);
         dataSourceMap.put(DataSourceKey.DB_MASTER, dbMaster());
-//        dataSourceMap.put(DataSourceKey.DB_SLAVE1, dbSlave1());
+        dataSourceMap.put(DataSourceKey.DB_SLAVE1, dbSlave1());
         dataSource.setTargetDataSources(dataSourceMap);
+        dataSource.setDefaultTargetDataSource(dbMaster());//默认数据源
         return dataSource;
     }
 

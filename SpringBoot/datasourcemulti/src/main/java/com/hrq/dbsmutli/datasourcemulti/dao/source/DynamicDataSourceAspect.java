@@ -4,11 +4,14 @@ import com.hrq.dbsmutli.datasourcemulti.dao.config.DataSourceKey;
 import com.hrq.dbsmutli.datasourcemulti.dao.config.TargetDataSource;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
@@ -18,6 +21,9 @@ import java.lang.reflect.Method;
  * @Author huangrq
  * @Date 2019/3/18 15:17
  */
+@Aspect
+@Order(-1)
+@Component
 public class DynamicDataSourceAspect {
     private static final Logger LOG = LoggerFactory.getLogger(DynamicDataSourceAspect.class);
 
@@ -34,12 +40,11 @@ public class DynamicDataSourceAspect {
     @Before("@annotation(targetDataSource)")
     public void doBefore(JoinPoint joinPoint, TargetDataSource targetDataSource) {
         DataSourceKey dataSourceKey = targetDataSource.dataSourceKey();
-        if (dataSourceKey == DataSourceKey.DB_OTHER) {
-            LOG.info(String.format("设置数据源为  %s", DataSourceKey.DB_OTHER));
-            DynamicDataSourceContextHolder.set(DataSourceKey.DB_OTHER);
-        } else {
-            LOG.info(String.format("使用默认数据源  %s", DataSourceKey.DB_MASTER));
-            DynamicDataSourceContextHolder.set(DataSourceKey.DB_MASTER);
+        if (dataSourceKey != DataSourceKey.DB_MASTER) {
+            LOG.info(String.format("设置数据源为  %s", DataSourceKey.DB_SLAVE1));
+            DynamicDataSourceContextHolder.set(DataSourceKey.DB_SLAVE1);
+        }else{
+            LOG.info(String.format("设置数据源为默认数据源  %s", DataSourceKey.DB_MASTER));
         }
     }
 
@@ -55,12 +60,12 @@ public class DynamicDataSourceAspect {
         DynamicDataSourceContextHolder.clear();
     }
 
-    @Before(value = "pointCut()")
+   /* @Before(value = "pointCut()")
     public void doBeforeWithSlave(JoinPoint joinPoint) {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         //获取当前切点方法对象
         Method method = methodSignature.getMethod();
-        if (method.getDeclaringClass().isInterface()) {//判断是否为借口方法
+        if (method.getDeclaringClass().isInterface()) {//判断是否为接口方法
             try {
                 //获取实际类型的方法对象
                 method = joinPoint.getTarget().getClass()
@@ -72,6 +77,6 @@ public class DynamicDataSourceAspect {
         if (null == method.getAnnotation(TargetDataSource.class)) {
             DynamicDataSourceContextHolder.setSlave();
         }
-    }
+    }*/
 
 }

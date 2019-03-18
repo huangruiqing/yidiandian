@@ -15,14 +15,14 @@ import javax.xml.ws.RequestWrapper;
  * @Date 2019/3/18 16:44
  */
 @RestController
-@RequestMapping("db")
+@RequestMapping("/db")
 public class TestController {
 
 
     @Autowired
     private TestService testService;
 
-   @RequestMapping("/")
+   @RequestMapping(value = "")
     public int test() {
        return testService.getCount();
     }

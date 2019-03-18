@@ -15,7 +15,7 @@ public class DynamicRoutingDataSource extends AbstractRoutingDataSource {
     private static final Logger logger = LoggerFactory.getLogger(DynamicRoutingDataSource.class);
     @Override
     protected Object determineCurrentLookupKey() {
-        logger.info("当前数据源：{}"+ DynamicDataSourceContextHolder.get());
+        logger.info("当前数据源：{}",DynamicDataSourceContextHolder.get());
         return DynamicDataSourceContextHolder.get();
     }
 
