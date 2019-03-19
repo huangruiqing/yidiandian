@@ -9,8 +9,8 @@ import com.hrq.dbsmutli.datasourcemulti.dao.config.TargetDataSource;
  * @Author huangrq
  * @Date 2019/3/18 16:22
  */
-public interface TestSlaveMapper {
 
+public interface TestSlaveMapper {
     @TargetDataSource(dataSourceKey = DataSourceKey.DB_SLAVE1)
     int getCount();
 

@@ -33,7 +33,7 @@ public class DynamicDataSourceConfiguration {
      * 需要你在application.properties中配置，详细信息看下面贴出的application.properties文件。
      */
     @Bean
-    @ConfigurationProperties(prefix = "multiple.datasource.master")
+    @ConfigurationProperties(prefix = "spring.datasource.master")
     public DataSource dbMaster() {
         return DruidDataSourceBuilder.create().build();
     }

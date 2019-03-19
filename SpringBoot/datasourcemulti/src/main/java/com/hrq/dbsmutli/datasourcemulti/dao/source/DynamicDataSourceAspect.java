@@ -43,7 +43,7 @@ public class DynamicDataSourceAspect {
         if (dataSourceKey != DataSourceKey.DB_MASTER) {
             LOG.info(String.format("设置数据源为  %s", DataSourceKey.DB_SLAVE1));
             DynamicDataSourceContextHolder.set(DataSourceKey.DB_SLAVE1);
-        }else{
+        } else {
             LOG.info(String.format("设置数据源为默认数据源  %s", DataSourceKey.DB_MASTER));
         }
     }
@@ -60,23 +60,6 @@ public class DynamicDataSourceAspect {
         DynamicDataSourceContextHolder.clear();
     }
 
-   /* @Before(value = "pointCut()")
-    public void doBeforeWithSlave(JoinPoint joinPoint) {
-        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-        //获取当前切点方法对象
-        Method method = methodSignature.getMethod();
-        if (method.getDeclaringClass().isInterface()) {//判断是否为接口方法
-            try {
-                //获取实际类型的方法对象
-                method = joinPoint.getTarget().getClass()
-                        .getDeclaredMethod(joinPoint.getSignature().getName(), method.getParameterTypes());
-            } catch (NoSuchMethodException e) {
-                LOG.error("方法不存在！", e);
-            }
-        }
-        if (null == method.getAnnotation(TargetDataSource.class)) {
-            DynamicDataSourceContextHolder.setSlave();
-        }
-    }*/
+
 
 }

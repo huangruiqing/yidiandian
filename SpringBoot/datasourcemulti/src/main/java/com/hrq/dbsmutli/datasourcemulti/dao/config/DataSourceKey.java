@@ -8,7 +8,7 @@ package com.hrq.dbsmutli.datasourcemulti.dao.config;
  */
 public enum DataSourceKey {
     DB_MASTER,
-    DB_SLAVE1,
-    DB_SLAVE2,
-    DB_OTHER
+    DB_SLAVE1
+   // DB_SLAVE2,
+ //   DB_OTHER
 }

@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
  * @Date 2019/3/18 15:14
  */
 
-@Target({ElementType.METHOD,ElementType.TYPE})
+@Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TargetDataSource {
     DataSourceKey dataSourceKey() default DataSourceKey.DB_MASTER;

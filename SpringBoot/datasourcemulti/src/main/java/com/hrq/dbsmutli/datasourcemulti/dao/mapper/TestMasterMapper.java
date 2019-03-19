@@ -9,6 +9,7 @@ import com.hrq.dbsmutli.datasourcemulti.dao.config.TargetDataSource;
  * @Author huangrq
  * @Date 2019/3/18 16:22
  */
+
 public interface TestMasterMapper {
     @TargetDataSource(dataSourceKey = DataSourceKey.DB_MASTER)
     int getCount();
