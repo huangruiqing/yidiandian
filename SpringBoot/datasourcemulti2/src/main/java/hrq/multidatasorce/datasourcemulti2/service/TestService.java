@@ -24,10 +24,10 @@ public class TestService {
     public int getCount() {
         int i = new Random().nextInt(3);
         System.out.println(">>>>>>>>>>>>>>" + i);
-        if (i > 1) {
+       /* if (i > 1) {
             System.out.println("slave db");
             return testSlaveDao.getCount();
-        }
+        }*/
         System.out.println("master db");
         return testMasterDao.getCount();
     }
