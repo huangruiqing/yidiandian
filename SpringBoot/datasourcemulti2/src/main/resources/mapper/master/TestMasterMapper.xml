@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="hrq.multidatasorce.datasourcemulti2.dao.mapper.master.TestMasterMapper">
+
+    <select id="getCount" resultType="int">
+       select count(*) from test
+    </select>
+    <insert id="save">
+        insert into test (name) values ('test_name')
+    </insert>
+</mapper>
