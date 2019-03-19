@@ -21,9 +21,14 @@ public class TestController {
     @Autowired
     private TestService testService;
 
-   @RequestMapping(value = {"/",""})
+    @RequestMapping(value = {"/", ""})
     public int test() {
-       return testService.getCount();
+        return testService.getCount();
     }
 
+    @RequestMapping("save")
+    public int saveTest() {
+        testService.save();
+        return 0;
+    }
 }

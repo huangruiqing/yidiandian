@@ -1,10 +1,7 @@
 package com.hrq.dbsmutli.datasourcemulti.dao.source;
 
-import com.hrq.dbsmutli.datasourcemulti.dao.config.DataSourceKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Random;
 
 /**
  * @ClassName DynamicDataSourceContextHolder
@@ -14,7 +11,7 @@ import java.util.Random;
  */
 public class DynamicDataSourceContextHolder {
     private Logger logger = LoggerFactory.getLogger(DynamicDataSourceContextHolder.class);
-    private static final ThreadLocal<DataSourceKey> currentDatesource = new ThreadLocal<>();
+    private static final ThreadLocal<String> currentDatesource = new ThreadLocal<>();
 
     /**
      * 清除当前数据源
@@ -28,7 +25,7 @@ public class DynamicDataSourceContextHolder {
      *
      * @return 当前使用数据源的ID
      */
-    public static DataSourceKey get() {
+    public static String get() {
         return currentDatesource.get();
     }
 
@@ -37,7 +34,7 @@ public class DynamicDataSourceContextHolder {
      *
      * @param value 需要设置的数据源ID
      */
-    public static void set(DataSourceKey value) {
+    public static void set(String value) {
         currentDatesource.set(value);
     }
 
@@ -46,7 +43,7 @@ public class DynamicDataSourceContextHolder {
      * 采用简单生成随机数的方式切换不同的从库
      */
     public static void setSlave() {
-        DynamicDataSourceContextHolder.set(DataSourceKey.DB_SLAVE1);
+     //   DynamicDataSourceContextHolder.set(DataSourceKey.DB_SLAVE1);
        /* if (new Random().nextInt(2) > 0) {
             DynamicDataSourceContextHolder.set(DataSourceKey.DB_SLAVE2);
         } else {

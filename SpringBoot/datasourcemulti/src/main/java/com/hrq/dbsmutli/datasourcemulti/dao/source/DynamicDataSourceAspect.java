@@ -1,19 +1,15 @@
 package com.hrq.dbsmutli.datasourcemulti.dao.source;
 
-import com.hrq.dbsmutli.datasourcemulti.dao.config.DataSourceKey;
 import com.hrq.dbsmutli.datasourcemulti.dao.config.TargetDataSource;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
-import java.lang.reflect.Method;
 
 /**
  * @ClassName DynamicDataSourceAspect
@@ -22,7 +18,7 @@ import java.lang.reflect.Method;
  * @Date 2019/3/18 15:17
  */
 @Aspect
-@Order(-1)
+@Order(0)
 @Component
 public class DynamicDataSourceAspect {
     private static final Logger LOG = LoggerFactory.getLogger(DynamicDataSourceAspect.class);
@@ -39,12 +35,12 @@ public class DynamicDataSourceAspect {
      */
     @Before("@annotation(targetDataSource)")
     public void doBefore(JoinPoint joinPoint, TargetDataSource targetDataSource) {
-        DataSourceKey dataSourceKey = targetDataSource.dataSourceKey();
-        if (dataSourceKey != DataSourceKey.DB_MASTER) {
-            LOG.info(String.format("设置数据源为  %s", DataSourceKey.DB_SLAVE1));
-            DynamicDataSourceContextHolder.set(DataSourceKey.DB_SLAVE1);
+        String dataSourceKey = targetDataSource.value();
+        if (!"master".equals(dataSourceKey)) {
+            LOG.info(String.format("设置数据源为  %s", dataSourceKey));
+            DynamicDataSourceContextHolder.set(dataSourceKey);
         } else {
-            LOG.info(String.format("设置数据源为默认数据源  %s", DataSourceKey.DB_MASTER));
+            LOG.info(String.format("设置数据源为默认数据源  %s","master"));
         }
     }
 
@@ -56,7 +52,7 @@ public class DynamicDataSourceAspect {
      */
     @After("@annotation(targetDataSource)")
     public void doAfter(JoinPoint joinPoint, TargetDataSource targetDataSource) {
-        LOG.info(String.format("当前数据源  %s  执行清理方法", targetDataSource.dataSourceKey()));
+        LOG.info(String.format("当前数据源  %s  执行清理方法", targetDataSource.value()));
         DynamicDataSourceContextHolder.clear();
     }
 

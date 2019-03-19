@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.stereotype.Component;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
@@ -60,8 +59,8 @@ public class DynamicDataSourceConfiguration {
         DynamicRoutingDataSource dataSource = new DynamicRoutingDataSource();
         dataSource.setDefaultTargetDataSource(dbMaster());
         Map<Object, Object> dataSourceMap = new HashMap<>(4);
-        dataSourceMap.put(DataSourceKey.DB_MASTER, dbMaster());
-        dataSourceMap.put(DataSourceKey.DB_SLAVE1, dbSlave1());
+        dataSourceMap.put("master", dbMaster());
+        dataSourceMap.put("slave1", dbSlave1());
         dataSource.setTargetDataSources(dataSourceMap);
         dataSource.setDefaultTargetDataSource(dbMaster());//默认数据源
         return dataSource;
@@ -88,7 +87,9 @@ public class DynamicDataSourceConfiguration {
      */
     @Bean
     public PlatformTransactionManager platformTransactionManager() {
-        return new DataSourceTransactionManager(dynamicDataSource());
+        PlatformTransactionManager platformTransactionManager = new DataSourceTransactionManager(dynamicDataSource());
+      //  platformTransactionManager.
+        return  platformTransactionManager;
     }
 
 }

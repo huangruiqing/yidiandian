@@ -1,7 +1,7 @@
 package com.hrq.dbsmutli.datasourcemulti.service;
 
-import com.hrq.dbsmutli.datasourcemulti.dao.mapper.TestMasterMapper;
-import com.hrq.dbsmutli.datasourcemulti.dao.mapper.TestSlaveMapper;
+import com.hrq.dbsmutli.datasourcemulti.dao.TestMasterDao;
+import com.hrq.dbsmutli.datasourcemulti.dao.TestSlaveDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,18 +17,24 @@ import java.util.Random;
 public class TestService {
 
     @Autowired
-    private TestMasterMapper testMasterMapper;
+    private TestMasterDao testMasterDao;
     @Autowired
-    private TestSlaveMapper testSlaveMapper;
+    private TestSlaveDao testSlaveDao;
 
     public int getCount() {
         int i = new Random().nextInt(3);
-        System.out.println(">>>>>>>>>>>>>>"+i);
+        System.out.println(">>>>>>>>>>>>>>" + i);
         if (i > 1) {
             System.out.println("slave db");
-            return testSlaveMapper.getCount();
+            return testSlaveDao.getCount();
         }
         System.out.println("master db");
-        return testMasterMapper.getCount();
+        return testMasterDao.getCount();
+    }
+
+
+    public void save() {
+        testMasterDao.save();
+        testSlaveDao.save();
     }
 }

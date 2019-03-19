@@ -5,5 +5,7 @@
     <select id="getCount" resultType="int">
        select count(*) from test
     </select>
-
+    <insert id="save">
+        insert into test (name) values ('test_name')
+    </insert>
 </mapper>
