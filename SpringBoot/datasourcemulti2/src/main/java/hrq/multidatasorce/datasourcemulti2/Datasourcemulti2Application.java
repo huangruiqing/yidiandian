@@ -12,9 +12,9 @@ public class Datasourcemulti2Application {
         SpringApplication.run(Datasourcemulti2Application.class, args);
 
 
-        System.out.println("##############################");
+        System.out.println("################################");
         System.out.println("Spring\tBoot\t启\t动\t完\t成");
-        System.out.println("##############################");
+        System.out.println("################################");
     }
 
 }
