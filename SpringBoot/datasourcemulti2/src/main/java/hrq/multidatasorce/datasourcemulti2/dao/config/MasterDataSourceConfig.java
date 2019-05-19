@@ -13,25 +13,26 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 
-
+@Component
 @ConditionalOnProperty(name = "spring.datasource.master.driverClassName", havingValue = "com.mysql.jdbc.Driver")
 @Configuration
 @MapperScan(basePackages = "hrq.multidatasorce.datasourcemulti2.dao.mapper.master", sqlSessionTemplateRef  = "masterSqlSessionTemplate")
 public class MasterDataSourceConfig {
 
+    @ConfigurationProperties(prefix = "spring.datasource.master")
     @Bean(name = "masterDataSource")
     @Primary
-    @ConfigurationProperties(prefix = "spring.datasource.master")
-    public DataSource testDataSource() {
+    public DataSource dataSource() {
         return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "masterSqlSessionFactory")
     @Primary
-    public SqlSessionFactory testSqlSessionFactory(@Qualifier("masterDataSource") DataSource dataSource) throws Exception {
+    public SqlSessionFactory sqlSessionFactory(@Qualifier("masterDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
         bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mapper/master/*.xml"));
@@ -40,13 +41,13 @@ public class MasterDataSourceConfig {
 
     @Bean(name = "masterTransactionManager")
     @Primary
-    public DataSourceTransactionManager testTransactionManager(@Qualifier("masterDataSource") DataSource dataSource) {
+    public DataSourceTransactionManager transactionManager(@Qualifier("masterDataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
     @Bean(name = "masterSqlSessionTemplate")
     @Primary
-    public SqlSessionTemplate testSqlSessionTemplate(@Qualifier("masterSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+    public SqlSessionTemplate sqlSessionTemplate(@Qualifier("masterSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 
