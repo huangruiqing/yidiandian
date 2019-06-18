@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: config-client02
+  cloud:
+    config:
+      profile: dev
+      label: consumer
+      uri: http://127.0.0.1:8889/
+      name: consumer2
+
+server:
+  port: 8881
+
+
