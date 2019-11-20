@@ -6,6 +6,7 @@
     <modules>
         <module>SpringBoot</module>
         <module>SpringCloud_02</module>
+        <module>H.DesignPatterns</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
