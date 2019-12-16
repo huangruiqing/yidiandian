@@ -1,5 +1,6 @@
 [大话设计模式](https://github.com/huangruiqing/goodgoodstudy/blob/master/DesignPattern/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.pdf)  
-[设计模式](http://c.biancheng.net/view/1317.html/)
+[设计模式](http://c.biancheng.net/view/1317.html)
+
 
 - 1. 根据目的来分
 >根据模式是用来完成什么工作来划分，这种方式可分为创建型模式、结构型模式和行为型模式 3 种。
