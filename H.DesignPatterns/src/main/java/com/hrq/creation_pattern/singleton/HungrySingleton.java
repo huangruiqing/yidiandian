@@ -8,7 +8,7 @@ package com.hrq.creation_pattern.singleton;
  */
 public class HungrySingleton {
 
-    private static volatile HungrySingleton instance = new HungrySingleton();
+    private static final  HungrySingleton instance = new HungrySingleton();
 
     private HungrySingleton(){};
 
@@ -16,4 +16,14 @@ public class HungrySingleton {
         return instance;
     }
 
+
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
