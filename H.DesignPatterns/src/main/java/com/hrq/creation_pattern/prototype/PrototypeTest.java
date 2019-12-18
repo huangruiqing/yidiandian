@@ -7,4 +7,14 @@ package com.hrq.creation_pattern.prototype;
  * @Date 2019/12/18 19:11
  */
 public class PrototypeTest {
+
+    public static void main(String[] args) {
+
+        Realizetype realizetype_1 = new Realizetype();
+        Realizetype realizetype_2 = (Realizetype) realizetype_1.clone();
+        System.out.println(realizetype_1 == realizetype_2);
+
+
+    }
+
 }
