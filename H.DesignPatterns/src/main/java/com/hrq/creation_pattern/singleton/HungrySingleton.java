@@ -2,7 +2,7 @@ package com.hrq.creation_pattern.singleton;
 
 /**
  * @ClassName HungrySingleton
- * @Description 饿汉式 上来就建造（在初始化）
+ * @Description 饿汉式 上来就建造（static在初始化）
  * @Author huangrq
  * @Date 2019/12/16 20:16
  */
