@@ -20,6 +20,13 @@ public class SingletonTest {
         SingletonEnum.MyResource myResource = SingletonEnum.INSTANCE.getMyResourceInstance();
         myResource.setSourceName("enum 式");
 
+        System.out.println(SingletonEnum.INSTANCE.getMyResourceInstance().getSourceName());
+
+        SingletonEnum singletonEnum =  SingletonEnum.INSTANCE;
+        singletonEnum.setName("枚举");
+        System.out.println(SingletonEnum.INSTANCE.getName());
+
+
     }
 
 

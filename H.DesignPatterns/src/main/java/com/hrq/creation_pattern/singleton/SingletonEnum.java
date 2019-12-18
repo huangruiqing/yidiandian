@@ -13,13 +13,13 @@ public enum SingletonEnum {
     private MyResource myResource = null;
     private String  name;
 
-    private SingletonEnum() {
+    SingletonEnum() {
         myResource = new MyResource();
     }
     public  MyResource getMyResourceInstance() {
         return myResource;
     }
-    public class MyResource {
+    class MyResource {
         private String sourceName;
 
         private MyResource(){}
@@ -31,5 +31,13 @@ public enum SingletonEnum {
         public void setSourceName(String sourceName) {
             this.sourceName = sourceName;
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
