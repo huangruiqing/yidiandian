@@ -2,7 +2,7 @@ package com.hrq.creation_pattern.singleton;
 
 /**
  * @ClassName LazySingleton_1
- * @Description ；懒加载模式  会出现线程安全问题
+ * @Description ；懒加载模式   会出现线程安全问题
  * @Author huangrq
  * @Date 2019/12/16 20:09
  */
