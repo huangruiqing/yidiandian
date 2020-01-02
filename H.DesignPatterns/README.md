@@ -1,3 +1,4 @@
+[ReadMe.md](https://github.com/huangruiqing/yidiandian/tree/master/H.DesignPatterns)  
 [大话设计模式](https://github.com/huangruiqing/goodgoodstudy/blob/master/DesignPattern/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.pdf)  
 [设计模式](http://c.biancheng.net/view/1317.html)
 
